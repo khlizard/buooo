@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>プログラミング言語　ぶおおおおおおおおおおお</title>
+<script type="text/javascript" src="./files/ws2js.js"></script>
+<script type="text/javascript">
+
+onload = function () {
+
+	function $ (id) {return document.getElementById(id)}
+
+	var src = $('buooo-src');
+	var io = $('io-dst');
+
+	function output (s) {
+		io.value += s;
+		io.scrollTop = io.scrollHeight;
+	}
+	WS2JS.putc = function (c) {
+		output(c === 13 ? "" : String.fromCharCode(c));
+	};
+	WS2JS.putn = output;
+	WS2JS.onExit = function () {
+		var d = new Date();
+		output("\n[Run at " + d.toString().split(" ")[4] + "]\n\n");
+	}
+
+	$('exec').onclick = function () {
+		try {
+			eval(WS2JS.convert(src.value));
+		} catch (e) {
+			output("\n[Error] " + e.message + "\n");
+		}
+	};
+
+	$('clear').onclick = function () {
+		io.value = '';
+	};
+};
+</script>
+<style>
+	html {
+		font-family: sans-serif;
+	}
+	body {
+		font-size: large;
+		background-image: url(./files/bgimg.png);
+		background-size: cover;
+	}
+	h2, textarea {
+		width: 98%;
+		margin: 0 auto;
+	}
+	h2 {
+		margin: 0;
+		padding: 0.1em 0.5em;
+		background-color: black;
+		color: white;
+		font-size: 100%;
+	}
+	textarea {
+		font-size: 120%;
+		padding: 0.3em 0.5em;
+		height: 20em;
+		background-color: rgba(255,255,255,0.7);
+		font-family: monospace;
+	}
+	#io-dst {
+		height: 10em;
+	}
+	#body {
+		width: 80%;
+		/*border: 1px solid white;*/
+		padding: 1em;
+		margin: 1em auto;
+	}
+	.btn input {
+		background-color: black;
+		color: white;
+		margin: 0.5em 1em;
+		padding: 0.3em 0.6em;
+		font-size: 100%;
+	}
+	.foot {
+		background-color: rgba(255,255,255,0.7);
+		padding: 0.1em 1em;
+	}
+	.foot p { margin: 0.5em 0; }
+</style>
+</head>
+<body>
+<div id="body">
+	<h1>ぶおおおおおおおおおおおお</h1>
+	<div class="src">
+		<h2 id="buooo-tab">ぶおおおおお</h2>
+		<textarea id="buooo-src">おおおぶおおぶおおおーぶーおおおおお
+ぶぶおおぶおぶーぶーおおおおお
+ぶぶおぶぶおおーぶーおおおおお
+ぶぶおぶぶおおーぶーおおおおお
+ぶぶおぶぶぶぶーぶーおおおおお
+ぶおぶぶおおー
+ぶーおおおおおぶおおおおおー
+ぶーおおおおおぶぶぶおぶぶぶーぶーおおおおお
+ぶぶおぶぶぶぶーぶーおおおおお
+ぶぶぶおおぶおーぶーおおおおお
+ぶぶおぶぶおおーぶーおおおおお
+ぶぶおおぶおおーぶーおおおおお
+ぶおおおおぶーぶーおおおおおぶおぶおーぶーおおーーーー
+</textarea>
+	</div>
+	<div class="btn">
+		<input type="button" class="ws2js-button" id="exec" value="じっこう">
+		<input type="button" class="ws2js-button" id="clear" value="けします">
+	</div>
+	<div class="dst">
+		<h2>出力でしてー</h2>
+		<textarea id="io-dst" readonly></textarea>
+	</div>
+	<div class="foot">
+		<p><b>説明：</b> <a href="https://ja.wikipedia.org/wiki/Whitespace">Whitespace</a>の文字を入れ替えただけです。Tab＝ぶ、Space＝お、LF＝ー、それ以外の文字は無視します。</p>
+		<p>
+			Created: <a href="https://imastodon.net/@khlizard">khlizard@imastodon</a> (<a href="https://twitter.com/khlizard">@khlizard</a>)<br>
+			Original: <a href="https://github.com/Luilak/WS2JS">WS2JS</a>
+		</p>
+	</div>
+</div>
+</body>
+</html>
